@@ -1,0 +1,23 @@
+name: wordrec_swresnet
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Main Requirements
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+
+  # PyTorch
+  - pytorch
+  - torchaudio
+  - pytorch-cuda=12.1
+
+  # Other
+  - pillow
+  - matplotlib
+  - tqdm

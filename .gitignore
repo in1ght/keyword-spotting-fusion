@@ -1,0 +1,12 @@
+# =========================
+# DATA (LICENSE-RESTRICTED)
+# =========================
+
+data/development_scenes/
+data/test_scenes/
+data/development.npy
+
+# If you want to be extra safe and future-proof:
+data/**/*.npy
+data/**/development_scenes/
+data/**/test_scenes/
