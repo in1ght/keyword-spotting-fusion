@@ -4,6 +4,7 @@ import warnings
 import argparse
 import torch
 import torch
+import os
 
 import numpy as np
 import pandas as pd
@@ -290,13 +291,14 @@ class Dataset_frames(torch.utils.data.Dataset):
 
 
 if __name__ == "__main__":
+    base = os.path.dirname(os.path.abspath(__file__))
     parser = argparse.ArgumentParser(description="Execute model on a single sample - refer to the readme for more infromation on the arguments")
     # ======== 1 Required     ========
     parser.add_argument("--model_name", type=str, required=True, help="Model name to load")
 
     # ======== 2 General      ========
     parser.add_argument("--device", type=str, default="cuda", help="Device")
-    parser.add_argument("--data_path", type=str, default=r"data\scene\5_Lukas_Staubsauger_an_Licht_aus.npy", help="Path to input sample")
+    parser.add_argument("--data_path", type=str, default=os.path.join(base, "data", "scene", "5_Lukas_Staubsauger_an_Licht_aus.npy"), help="Path to input sample")
     parser.add_argument("--print_thinking", action="store_true", help="Print debug output")
 
     # ======== 3 Parameters   ========

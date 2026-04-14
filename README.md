@@ -15,6 +15,13 @@ A fusion model combining ResNeXt and a custom CNN for the final word detection.
 
 ## Quick start
 
+0. **Load model correctly**
+
+```
+git lfs install
+git lfs pull
+```
+
 1. **Create and activate environment**
 
 ```
@@ -98,7 +105,7 @@ The best hyperparameter values are:
 To view available options and arguments for each script, run them with "--help".
 ```
 
-All of the code was implemented in Python using **sklearn** and **PyTorch**. All required external libraries are listed in the `environment.yaml` file.
+All of the code was implemented in Python using **sklearn** and **PyTorch**. All required external libraries are listed in the `environment.yaml` file. Download pretrained model weights using Git LFS.
 
 ### Run the pretrained model on a single audio
 
@@ -141,6 +148,24 @@ The evaluation produces results of the following form:
 |   | Precision | 0.740 | 0.787 | *0.811* | **0.821** |
 
 Refer to the model overview for the hyperparameter names.
+
+## Docker (optional)
+
+You can run the project without installing dependencies locally using Docker.
+
+### Build image
+
+```bash
+docker build -t keyword-spotting .
+```
+
+### Run pretrained model
+
+If you have an NVIDIA GPU:
+
+```bash
+docker run --gpus all --rm keyword-spotting
+```
 
 ## Error Analysis 
 
@@ -196,7 +221,9 @@ wordrec_swresnet/
 
  ├── images/                                 # Images used in the ReadMe
  ├── environment.yaml                        # Environment for the set-up
+ ├── Dockerfile                              # Docker for reproducibility
+ ├── .dockerignore                           # What files to ignore (data)
+ ├── .gitignore                              # What files to ignore (data)
  ├── LICENSE.txt                             # MIT License (data is CC)
  └── README.md                               # <== You are here
 ```
-

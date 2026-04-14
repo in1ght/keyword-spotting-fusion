@@ -1,6 +1,7 @@
 # Imports
 import warnings
 import argparse
+import os
 
 import numpy as np
 import pandas as pd
@@ -355,14 +356,15 @@ def training_loop_class(
 
 
 if __name__ == "__main__":
+    base = os.path.dirname(os.path.abspath(__file__))
     parser = argparse.ArgumentParser(description="Train Advanced Sliding Window Word Classification Models")
 
     # ======== 1 Required     ========
     parser.add_argument("--model_name", type=str, required=True, help="Model name")
 
     # ======== 2 Data         ========
-    parser.add_argument("--data_path", type=str, default="data\\development.npy", help="Path to input numpy data")
-    parser.add_argument("--labels_path", type=str, default="data\\development.csv", help="Path to labels csv")
+    parser.add_argument("--data_path", type=str, default=os.path.join(base, "data", "development.npy"), help="Path to input numpy data")
+    parser.add_argument("--labels_path", type=str, default=os.path.join(base, "data", "development.csv"), help="Path to labels csv")
     parser.add_argument("--test_size", type=float, default=0.15, help="Test split size")
     parser.add_argument("--random_state", type=int, default=89, help="Random seed")
     parser.add_argument("--useful_words", type=str, nargs='+',

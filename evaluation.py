@@ -175,6 +175,7 @@ def perform_evaluation(
 
 
 if __name__ == "__main__":
+    base = os.path.dirname(os.path.abspath(__file__))
     parser = argparse.ArgumentParser(description="Perform evaluation over multiple configurations")
     
     # ======== 1 Required       ========
@@ -182,10 +183,10 @@ if __name__ == "__main__":
 
     # ======== 2 General        ========
     parser.add_argument("--device", type=str, default="cuda", help="Device (cuda/cpu)")
-    parser.add_argument("--dv_scenes", type=str, default=r"data\development_scenes.csv", help="CSV with evaluation scene metadata")
-    parser.add_argument("--dv_scenes_annotations", type=str, default=r"data\development_scene_annotations.csv", help="CSV with evaluation scene annotations")
-    parser.add_argument("--dv_folder", type=str, default=r"data\development_scenes", help="Folder with evaluation scene files")
-    parser.add_argument("--json_path", type=str, default=r"models\configurations.json", help="Path to configuration JSON file")
+    parser.add_argument("--dv_scenes", type=str, default=os.path.join(base, "data", "development_scenes.csv"), help="CSV with evaluation scene metadata")
+    parser.add_argument("--dv_scenes_annotations", type=str, default=os.path.join(base, "data", "development_scene_annotations.csv"), help="CSV with evaluation scene annotations")
+    parser.add_argument("--dv_folder", type=str, default=os.path.join(base, "data", "development_scenes"), help="Folder with evaluation scene files")
+    parser.add_argument("--json_path", type=str, default=os.path.join(base, "models", "configurations.json"), help="Path to configuration JSON file")
 
     # ======== 3 Checkboxes     ========
     parser.add_argument("--display", action="store_true", help="Enable evaluation display output")

@@ -1,0 +1,9 @@
+# ========================= #
+# DATA (LICENSE-RESTRICTED) #
+# ========================= #
+
+data/development_scenes/
+data/test_scenes/
+data/development.npy
+__pycache__/
+.git/
